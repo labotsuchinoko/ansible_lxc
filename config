@@ -1,0 +1,11 @@
+lxc.utsname = vm01
+lxc.network.type = veth
+lxc.network.flags = up
+lxc.network.link = lxcbr0
+lxc.network.name = eth0
+lxc.network.veth.pair = veth-vm01
+lxc.tty = 6
+lxc.pts = 1024
+lxc.rootfs = /var/lib/lxc/vm01/rootfs
+lxc.mount  = /var/lib/lxc/vm01/fstab
+lxc.cap.drop = sys_module mac_admin

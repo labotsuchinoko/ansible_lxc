@@ -1,0 +1,22 @@
+---
+  - hosts: lxc-host
+    user: root
+    tasks:
+
+    - name: create vm
+      shell: mkdir -p /var/lib/lxc/{{guesthostname}}/rootfs
+
+    - name: tar
+      shell: tar xzvf /centos6-lxc-root.tgz -C /var/lib/lxc/{{guesthostname}}/rootfs/ --numeric-owner
+
+    - name: create config
+      template: src=config dest=/var/lib/lxc/{{guesthostname}}/config
+
+    - name: replace config
+      replace: dest=/var/lib/lxc/{{guesthostname}}/config regexp="vm01" replace="{{guesthostname}}" backup=yes
+
+    - name: create fstab
+      template: src=guest-fstab dest=/var/lib/lxc/{{guesthostname}}/fstab
+
+    - name: replace fstab
+      replace: dest=/var/lib/lxc/{{guesthostname}}/fstab regexp="vm01" replace="{{guesthostname}}" backup=yes

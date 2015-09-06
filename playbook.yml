@@ -1,0 +1,5 @@
+---
+- hosts: lxc-host
+  user: root
+  roles:
+    - lxc
