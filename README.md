@@ -16,7 +16,7 @@ Maltipul host automated build lxc enviroment.
 
 
 #####test environment
-CentOS-6.6
+CentOS-6.7
 
 #####prepare
 
